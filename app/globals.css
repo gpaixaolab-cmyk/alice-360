@@ -39,6 +39,11 @@ button, label { -webkit-tap-highlight-color: transparent; }
 .option-row:hover { border-color: rgb(103 232 249 / .35); transform: translateY(-1px); }
 .option-selected { border-color: rgb(103 232 249 / .45); background: rgb(103 232 249 / .09); color: #ecfeff; }
 .signal-grid { background-image: linear-gradient(rgb(103 232 249 / .05) 1px, transparent 1px), linear-gradient(90deg, rgb(103 232 249 / .05) 1px, transparent 1px), radial-gradient(circle at 70% 20%, rgb(103 232 249 / .2), transparent 52%); background-size: 22px 22px, 22px 22px, auto; border-left: 1px solid rgb(255 255 255 / .07); }
+.portal-nav-item { display: flex; min-width: max-content; align-items: center; gap: .75rem; border-radius: .75rem; padding: .7rem .85rem; color: #94a3b8; font-size: .875rem; transition: background-color .2s, color .2s; }
+.portal-nav-item:hover { background: rgb(255 255 255 / .04); color: #f8fafc; }
+.portal-nav-active { background: rgb(103 232 249 / .11); color: #cffafe; }
+.portal-title { margin-top: .75rem; font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 650; line-height: 1.08; letter-spacing: -.035em; }
+.portal-subtitle { margin-top: 1rem; max-width: 44rem; color: #94a3b8; line-height: 1.7; }
 
 @media (max-width: 767px) { .signal-grid { border-left: 0; border-top: 1px solid rgb(255 255 255 / .07); } .exam-card { padding: 1.15rem; } }
 @media print {
