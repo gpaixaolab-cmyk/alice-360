@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+:root {
+  --background: #06101d; --foreground: #eef7ff; --card: #0b1b2b; --card-foreground: #eef7ff;
+  --popover: #0b1b2b; --popover-foreground: #eef7ff; --primary: #67e8f9; --primary-foreground: #071321;
+  --secondary: #14283b; --secondary-foreground: #eef7ff; --muted: #14283b; --muted-foreground: #94a3b8;
+  --accent: #163247; --accent-foreground: #eef7ff; --destructive: #fb7185; --border: #203449;
+  --input: #203449; --ring: #67e8f9; --radius: .9rem;
+}
+
+@theme inline {
+  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive);
+  --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px); --radius-md: calc(var(--radius) - 2px); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) + 5px);
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { border-color: var(--border); }
+html { color-scheme: dark; }
+body {
+  margin: 0; min-width: 320px; color: var(--foreground); font-family: var(--font-sans);
+  background: radial-gradient(circle at 80% -10%, rgb(103 232 249 / .11), transparent 34rem),
+    radial-gradient(circle at -10% 60%, rgb(52 211 153 / .06), transparent 30rem), var(--background);
+}
+button, label { -webkit-tap-highlight-color: transparent; }
+.exam-card { border: 1px solid rgb(255 255 255 / .09); border-radius: 1.25rem; background: linear-gradient(145deg, rgb(13 31 47 / .96), rgb(8 23 37 / .98)); box-shadow: 0 24px 70px rgb(0 0 0 / .18); padding: 1.5rem; }
+.soft-card { border: 1px solid rgb(255 255 255 / .08); border-radius: 1rem; background: rgb(255 255 255 / .035); padding: 1.25rem; }
+.eyebrow { color: #67e8f9; font-size: .72rem; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
+.section-title { margin-top: .75rem; max-width: 44rem; font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 650; line-height: 1.06; letter-spacing: -.035em; }
+.section-description { margin-top: 1rem; max-width: 38rem; color: #94a3b8; line-height: 1.75; }
+.number-chip { display: inline-grid; height: 2rem; min-width: 2rem; flex: none; place-items: center; border-radius: .55rem; background: rgb(103 232 249 / .11); color: #a5f3fc; font-size: .72rem; font-weight: 700; letter-spacing: .05em; }
+.option-row { display: flex; cursor: pointer; align-items: center; gap: .8rem; border: 1px solid rgb(255 255 255 / .08); border-radius: .8rem; background: rgb(255 255 255 / .025); padding: .9rem 1rem; color: #cbd5e1; font-size: .9rem; transition: border-color .2s, background-color .2s, color .2s, transform .2s; }
+.option-row:hover { border-color: rgb(103 232 249 / .35); transform: translateY(-1px); }
+.option-selected { border-color: rgb(103 232 249 / .45); background: rgb(103 232 249 / .09); color: #ecfeff; }
+.signal-grid { background-image: linear-gradient(rgb(103 232 249 / .05) 1px, transparent 1px), linear-gradient(90deg, rgb(103 232 249 / .05) 1px, transparent 1px), radial-gradient(circle at 70% 20%, rgb(103 232 249 / .2), transparent 52%); background-size: 22px 22px, 22px 22px, auto; border-left: 1px solid rgb(255 255 255 / .07); }
+.portal-nav-item { display: flex; min-width: max-content; align-items: center; gap: .75rem; border-radius: .75rem; padding: .7rem .85rem; color: #94a3b8; font-size: .875rem; transition: background-color .2s, color .2s; }
+.portal-nav-item:hover { background: rgb(255 255 255 / .04); color: #f8fafc; }
+.portal-nav-active { background: rgb(103 232 249 / .11); color: #cffafe; }
+.portal-title { margin-top: .75rem; font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 650; line-height: 1.08; letter-spacing: -.035em; }
+.portal-subtitle { margin-top: 1rem; max-width: 44rem; color: #94a3b8; line-height: 1.7; }
+
+@media (max-width: 767px) { .signal-grid { border-left: 0; border-top: 1px solid rgb(255 255 255 / .07); } .exam-card { padding: 1.15rem; } }
+@media print {
+  :root { --background: #fff; --foreground: #0f172a; }
+  body { background: white; color: #0f172a; }
+  .exam-card, .soft-card { break-inside: avoid; border: 1px solid #cbd5e1; background: white; box-shadow: none; color: #0f172a; }
+  .eyebrow { color: #0e7490; }
+  .text-slate-200, .text-slate-300, .text-slate-400, .text-slate-500 { color: #334155 !important; }
+}
